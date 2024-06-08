@@ -16,8 +16,8 @@ class MainLandingPage extends StatefulWidget {
 class _MainLandingPageState extends State<MainLandingPage> {
   List<Widget> pages = [
     HomePage(),
-    NotificationPage(),
     SaveRecipesPage(),
+    NotificationPage(),
     UserProfilePage()
   ];
   int currentIndex = 0;
@@ -52,6 +52,7 @@ class _MainLandingPageState extends State<MainLandingPage> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: SvgPicture.asset("./assets/plus.svg"),
+        resizeToAvoidBottomInset: false,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: MyBottomNavigationBar(
           onTap: (value) => onTap(value),

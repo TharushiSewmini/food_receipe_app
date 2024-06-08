@@ -38,19 +38,20 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                           ? "./assets/homeG.svg"
                           : "./assets/home.svg",
                     )),
+                
                 BottomNavigationBarItem(
                     label: "Home",
                     icon: SvgPicture.asset(
                          widget.currentIndex  == 1
-                          ? "./assets/notificationG.svg"
-                          : "./assets/notification.svg",
+                          ? "./assets/saveBookMarkG.svg"
+                          : "./assets/saveBookMark.svg",
                     )),
-                BottomNavigationBarItem(
+                    BottomNavigationBarItem(
                     label: "Home",
                     icon: SvgPicture.asset(
                          widget.currentIndex  == 2
-                          ? "./assets/saveBookMarkG.svg"
-                          : "./assets/saveBookMark.svg",
+                          ? "./assets/notificationG.svg"
+                          : "./assets/notification.svg",
                     )),
                 BottomNavigationBarItem(
                     label: "Home",

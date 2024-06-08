@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ReusableSearchBar extends StatefulWidget {
+class ReusableSearchBar extends StatelessWidget {
   TextEditingController controller;
-  ReusableSearchBar({super.key, required this.controller});
+  void Function()? onTap;
+  ReusableSearchBar({super.key, required this.controller , required this.onTap});
 
-  @override
-  State<ReusableSearchBar> createState() => _ReusableSearchBarState();
-}
-
-class _ReusableSearchBarState extends State<ReusableSearchBar> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTap: onTap,
       textAlignVertical: TextAlignVertical.center,
-      controller: widget.controller,
+      controller: controller,
       cursorColor: Color(0xff129575),
       decoration: InputDecoration(
         isDense: true,

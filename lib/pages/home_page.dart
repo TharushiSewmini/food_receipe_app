@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_receipe_app/components/bottom_navigation_bar.dart';
 import 'package:food_receipe_app/components/food_category_tabs.dart';
 import 'package:food_receipe_app/components/food_details_tabs.dart';
 import 'package:food_receipe_app/components/new_recipe_tabs.dart';
 import 'package:food_receipe_app/components/reusable_search_bar.dart';
+import 'package:food_receipe_app/pages/recipe_detaile_preview_page.dart';
+import 'package:food_receipe_app/pages/search_recipes_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -69,7 +70,12 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                           height: 40,
                           child: ReusableSearchBar(
-                              controller: _searchTextController)),
+                            controller: _searchTextController,
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SearchRecipePage())),
+                          )),
                     ),
                     const SizedBox(
                       width: 20,
@@ -135,11 +141,17 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
                         itemBuilder: (context, index) {
-                          return const Padding(
+                          return Padding(
                             padding: EdgeInsets.only(
                               left: 16,
                             ),
-                            child: FoodRecipeContainer(),
+                            child: GestureDetector(
+                                onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            RecipeDetailPreview())),
+                                child: FoodRecipeContainer()),
                           );
                         }),
                   ),

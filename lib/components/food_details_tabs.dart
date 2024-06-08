@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_receipe_app/pages/recipe_detaile_preview_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodDetailsTabs extends StatefulWidget {
@@ -19,7 +20,12 @@ class _FoodDetailsTabsState extends State<FoodDetailsTabs> {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(right: 15),
-          child: FoodDetailTab(),
+          child: GestureDetector(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => RecipeDetailPreview())),
+              child: FoodDetailTab()),
         );
       },
     );
